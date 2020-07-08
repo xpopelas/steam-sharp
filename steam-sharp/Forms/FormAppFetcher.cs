@@ -19,6 +19,7 @@ namespace steam_sharp.Forms
         {
             _applicationData = applicationData;
             InitializeComponent();
+            button2.Enabled = false;
         }
 
         private void UpdateLabelText()
@@ -71,7 +72,7 @@ namespace steam_sharp.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             _selectedAppId = 0; // No app selected
-            button2.Enabled = false;
+            button2.Enabled = true;
             
             _currentQuery = textBox1.Text;
             _currentDisplayData = _applicationData
@@ -103,7 +104,6 @@ namespace steam_sharp.Forms
         {
             _selectedAppId = _currentDisplayData[_currentIndex + dataGridView1.CurrentCell.RowIndex].Key;
             UpdateLabelText();
-            button2.Enabled = true;
         }
 
         private void button2_Click(object sender, EventArgs e)

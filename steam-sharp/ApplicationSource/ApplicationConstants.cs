@@ -6,7 +6,6 @@ namespace steam_sharp
     {
         public static string SettingsPath => @"data/settings.json";
         public static string AvailableAppsPath => @"data/steam_apps.json";
-        public static string ApiKeyFolder => @"data/api-key.txt";
         public static string SteamStoreAppPrefix => @"https://store.steampowered.com/app/";
         
         public static void ApiNotSetMessage()

@@ -38,13 +38,17 @@ namespace steam_sharp
             this.labelApi = new System.Windows.Forms.Label();
             this.buttonUpdateApi = new System.Windows.Forms.Button();
             this.checkBoxSaveAPI = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.checkBoxSaveUsername = new System.Windows.Forms.CheckBox();
+            this.buttonSubmitUsername = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // storeAppsPerm
             // 
             this.storeAppsPerm.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.storeAppsPerm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.storeAppsPerm.Location = new System.Drawing.Point(24, 139);
+            this.storeAppsPerm.Location = new System.Drawing.Point(24, 147);
             this.storeAppsPerm.Name = "storeAppsPerm";
             this.storeAppsPerm.Size = new System.Drawing.Size(280, 46);
             this.storeAppsPerm.TabIndex = 0;
@@ -56,7 +60,7 @@ namespace steam_sharp
             // 
             this.storeIndivAppsPerm.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.storeIndivAppsPerm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.storeIndivAppsPerm.Location = new System.Drawing.Point(24, 191);
+            this.storeIndivAppsPerm.Location = new System.Drawing.Point(348, 147);
             this.storeIndivAppsPerm.Name = "storeIndivAppsPerm";
             this.storeIndivAppsPerm.Size = new System.Drawing.Size(280, 46);
             this.storeIndivAppsPerm.TabIndex = 1;
@@ -106,12 +110,58 @@ namespace steam_sharp
             this.checkBoxSaveAPI.UseVisualStyleBackColor = true;
             this.checkBoxSaveAPI.CheckedChanged += new System.EventHandler(this.checkBoxSaveAPI_CheckedChanged);
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(338, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(291, 23);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Steam Username";
+            // 
+            // textBoxUsername
+            // 
+            this.textBoxUsername.Location = new System.Drawing.Point(338, 31);
+            this.textBoxUsername.Name = "textBoxUsername";
+            this.textBoxUsername.Size = new System.Drawing.Size(308, 22);
+            this.textBoxUsername.TabIndex = 7;
+            // 
+            // checkBoxSaveUsername
+            // 
+            this.checkBoxSaveUsername.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.checkBoxSaveUsername.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.checkBoxSaveUsername.Location = new System.Drawing.Point(338, 59);
+            this.checkBoxSaveUsername.Name = "checkBoxSaveUsername";
+            this.checkBoxSaveUsername.Size = new System.Drawing.Size(290, 24);
+            this.checkBoxSaveUsername.TabIndex = 8;
+            this.checkBoxSaveUsername.Text = "Save Username";
+            this.checkBoxSaveUsername.UseVisualStyleBackColor = true;
+            this.checkBoxSaveUsername.CheckedChanged += new System.EventHandler(this.checkBoxSaveUsername_CheckedChanged);
+            // 
+            // buttonSubmitUsername
+            // 
+            this.buttonSubmitUsername.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (23)))), ((int) (((byte) (26)))), ((int) (((byte) (33)))));
+            this.buttonSubmitUsername.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.buttonSubmitUsername.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonSubmitUsername.Location = new System.Drawing.Point(365, 86);
+            this.buttonSubmitUsername.Name = "buttonSubmitUsername";
+            this.buttonSubmitUsername.Size = new System.Drawing.Size(264, 38);
+            this.buttonSubmitUsername.TabIndex = 9;
+            this.buttonSubmitUsername.Text = "Check Username";
+            this.buttonSubmitUsername.UseVisualStyleBackColor = false;
+            this.buttonSubmitUsername.Click += new System.EventHandler(this.buttonSubmitUsername_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (40)))), ((int) (((byte) (56)))));
-            this.ClientSize = new System.Drawing.Size(331, 249);
+            this.ClientSize = new System.Drawing.Size(652, 197);
+            this.Controls.Add(this.buttonSubmitUsername);
+            this.Controls.Add(this.checkBoxSaveUsername);
+            this.Controls.Add(this.textBoxUsername);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBoxSaveAPI);
             this.Controls.Add(this.buttonUpdateApi);
             this.Controls.Add(this.labelApi);
@@ -127,12 +177,16 @@ namespace steam_sharp
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Button buttonSubmitUsername;
         private System.Windows.Forms.Button buttonUpdateApi;
         private System.Windows.Forms.CheckBox checkBoxSaveAPI;
+        private System.Windows.Forms.CheckBox checkBoxSaveUsername;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelApi;
         private System.Windows.Forms.CheckBox storeAppsPerm;
         private System.Windows.Forms.CheckBox storeIndivAppsPerm;
         private System.Windows.Forms.TextBox textBoxApi;
+        private System.Windows.Forms.TextBox textBoxUsername;
 
         #endregion
     }

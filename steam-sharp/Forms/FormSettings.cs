@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using steam_sharp.Properties;
 
 namespace steam_sharp
 {
@@ -15,6 +16,7 @@ namespace steam_sharp
             storeAppsPerm.Checked = _applicationData.Settings.SaveLoadApps;
             storeIndivAppsPerm.Checked = _applicationData.Settings.SaveIndividualApps;
             checkBoxSaveAPI.Checked = _applicationData.Settings.SaveAPIKey;
+            checkBoxSaveUsername.Checked = _applicationData.Settings.SaveUsername;
             
             if (_applicationData.IsApiKeySet())
             {
@@ -42,13 +44,31 @@ namespace steam_sharp
 
         private void buttonUpdateApi_Click(object sender, EventArgs e)
         {
-            _applicationData.UpdateApiKeyAsync(textBoxApi.Text);
+            _applicationData.UpdateApiKey(textBoxApi.Text);
             labelApi.Text = @"API Key successfully set";
+            textBoxApi.Text = "";
         }
 
         private void checkBoxSaveAPI_CheckedChanged(object sender, EventArgs e)
         {
             _applicationData.Settings.SaveAPIKey = checkBoxSaveAPI.Checked;
+            _applicationData.Settings.UpdateSettingsAsync();
+        }
+
+        private void checkBoxSaveUsername_CheckedChanged(object sender, EventArgs e)
+        {
+            _applicationData.Settings.SaveUsername = checkBoxSaveUsername.Checked;
+            _applicationData.Settings.UpdateSettingsAsync();
+        }
+
+        private async void buttonSubmitUsername_Click(object sender, EventArgs e)
+        {
+            if (!await _applicationData.UpdateUsername(textBoxUsername.Text))
+            {
+                ApplicationConstants.AppNotAvailable();
+            }
+            
+            _applicationData.Settings.Username = textBoxUsername.Text;
             _applicationData.Settings.UpdateSettingsAsync();
         }
     }

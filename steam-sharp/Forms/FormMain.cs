@@ -17,7 +17,7 @@ namespace steam_sharp.Forms
             InitializeComponent();
 
             // Application Data
-            SetupAppData();
+            _applicationData = new ApplicationDataClass();
 
             // Settings
             _settingsForm = new SettingsForm(_applicationData);
@@ -25,15 +25,6 @@ namespace steam_sharp.Forms
             // AppFetcher
             _appFetcher = new AppFetcher(_applicationData);
             _appFetcher.Owner = this;
-        }
-
-        private void SetupAppData()
-        {
-            _applicationData = new ApplicationDataClass();
-            if (File.Exists(ApplicationConstants.ApiKeyFolder))
-            {
-                _applicationData = new ApplicationDataClass(File.ReadAllText(ApplicationConstants.ApiKeyFolder));
-            }
         }
 
         private void appFetcherButton_Click(object sender, EventArgs e)
@@ -62,7 +53,7 @@ namespace steam_sharp.Forms
 
         private void friendFinder_Click(object sender, EventArgs e)
         {
-            _applicationData.GetFriends();
+            throw new NotImplementedException("Not yet implemented");
         }
     }
 }
