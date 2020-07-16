@@ -28,7 +28,7 @@ namespace steam_sharp.Forms
             
             if (_appStoreInfo == null)
             {
-                ApplicationConstants.AppNotAvailable();
+                ApplicationConstants.MessageAppNotAvailable();
                 return;
             }
             
@@ -67,11 +67,28 @@ namespace steam_sharp.Forms
             {
                 label3.Text += $@"{_appStoreInfo.Metacritic.Score}/100";
             }
+
+            if (_applicationData.PlayerDetails.OwnsGame(_appId))
+            {
+                labelOwnedGame.Text = @"You already own this game";
+                labelOwnedGame.ForeColor = Color.Green;
+            }
+            else
+            {
+                labelOwnedGame.Text = @"You don't own this game";
+                labelOwnedGame.ForeColor = Color.DarkRed;
+            }
         }
 
         private void storeButton_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(ApplicationConstants.SteamStoreAppPrefix + _appId);
+        }
+
+        private void FormAppInfo_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
         }
     }
 }

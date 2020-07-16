@@ -116,6 +116,7 @@
   <ItemGroup>
     <Compile Include="ApplicationSource\ApplicationConstants.cs" />
     <Compile Include="ApplicationSource\ApplicationDataClass.cs" />
+    <Compile Include="ApplicationSource\ApplicationPlayerDetails.cs" />
     <Compile Include="ApplicationSource\ApplicationSettings.cs" />
     <Compile Include="Forms\FormAppFetcher.cs">
       <SubType>Form</SubType>
@@ -135,6 +136,12 @@
     <Compile Include="Forms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormProfileOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormProfileOverview.Designer.cs">
+      <DependentUpon>FormProfileOverview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormProfileOverview.resx">
+      <DependentUpon>FormProfileOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>

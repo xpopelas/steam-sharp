@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace steam_sharp.Forms
 {
-    public partial class AppFetcher : Form
+    public partial class FormAppFetcher : Form
     {
         private ApplicationDataClass _applicationData;
 
@@ -13,9 +13,10 @@ namespace steam_sharp.Forms
         private string _currentQuery;
         private int _currentIndex;
         private uint _selectedAppId = 0;
+        private Dictionary<uint, FormAppInfo> _formAppInfos = new Dictionary<uint, FormAppInfo>();
         
         private const int MaxItems = 50;
-        public AppFetcher(ApplicationDataClass applicationData)
+        public FormAppFetcher(ApplicationDataClass applicationData)
         {
             _applicationData = applicationData;
             InitializeComponent();
@@ -96,7 +97,6 @@ namespace steam_sharp.Forms
 
         private void AppFetcher_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
             Hide();
         }
 
@@ -110,7 +110,14 @@ namespace steam_sharp.Forms
         {
             if (_selectedAppId != 0)
             {
-                FormAppInfo appForm = new FormAppInfo(_applicationData, _selectedAppId);
+                if (_formAppInfos.ContainsKey(_selectedAppId))
+                {
+                    _formAppInfos[_selectedAppId].Show();
+                }
+                else
+                {
+                    _formAppInfos.Add(_selectedAppId, new FormAppInfo(_applicationData, _selectedAppId));
+                }
                 // Create new form
             }
         }

@@ -2,7 +2,7 @@
 
 namespace steam_sharp
 {
-    partial class SettingsForm
+    partial class FormSettingsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,9 +31,8 @@ namespace steam_sharp
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSettingsForm));
             this.storeAppsPerm = new System.Windows.Forms.CheckBox();
-            this.storeIndivAppsPerm = new System.Windows.Forms.CheckBox();
             this.textBoxApi = new System.Windows.Forms.TextBox();
             this.labelApi = new System.Windows.Forms.Label();
             this.buttonUpdateApi = new System.Windows.Forms.Button();
@@ -42,6 +41,9 @@ namespace steam_sharp
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.checkBoxSaveUsername = new System.Windows.Forms.CheckBox();
             this.buttonSubmitUsername = new System.Windows.Forms.Button();
+            this.buttonApiInfo = new System.Windows.Forms.Button();
+            this.buttonVanityUrlInfo = new System.Windows.Forms.Button();
+            this.storeIndivAppsPerm = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // storeAppsPerm
@@ -56,18 +58,6 @@ namespace steam_sharp
             this.storeAppsPerm.UseVisualStyleBackColor = true;
             this.storeAppsPerm.CheckedChanged += new System.EventHandler(this.storeAppsPerm_CheckedChanged);
             // 
-            // storeIndivAppsPerm
-            // 
-            this.storeIndivAppsPerm.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.storeIndivAppsPerm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.storeIndivAppsPerm.Location = new System.Drawing.Point(348, 147);
-            this.storeIndivAppsPerm.Name = "storeIndivAppsPerm";
-            this.storeIndivAppsPerm.Size = new System.Drawing.Size(280, 46);
-            this.storeIndivAppsPerm.TabIndex = 1;
-            this.storeIndivAppsPerm.Text = "Store all individual app data";
-            this.storeIndivAppsPerm.UseVisualStyleBackColor = true;
-            this.storeIndivAppsPerm.CheckedChanged += new System.EventHandler(this.storeIndivAppsPerm_CheckedChanged);
-            // 
             // textBoxApi
             // 
             this.textBoxApi.Location = new System.Drawing.Point(12, 31);
@@ -81,7 +71,7 @@ namespace steam_sharp
             this.labelApi.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.labelApi.Location = new System.Drawing.Point(13, 3);
             this.labelApi.Name = "labelApi";
-            this.labelApi.Size = new System.Drawing.Size(291, 23);
+            this.labelApi.Size = new System.Drawing.Size(278, 23);
             this.labelApi.TabIndex = 3;
             this.labelApi.Text = "API Key";
             // 
@@ -116,9 +106,9 @@ namespace steam_sharp
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(338, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(291, 23);
+            this.label1.Size = new System.Drawing.Size(277, 23);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Steam Username";
+            this.label1.Text = "Steam Vanity URL";
             // 
             // textBoxUsername
             // 
@@ -152,12 +142,46 @@ namespace steam_sharp
             this.buttonSubmitUsername.UseVisualStyleBackColor = false;
             this.buttonSubmitUsername.Click += new System.EventHandler(this.buttonSubmitUsername_Click);
             // 
-            // SettingsForm
+            // buttonApiInfo
+            // 
+            this.buttonApiInfo.Location = new System.Drawing.Point(297, 5);
+            this.buttonApiInfo.Name = "buttonApiInfo";
+            this.buttonApiInfo.Size = new System.Drawing.Size(25, 25);
+            this.buttonApiInfo.TabIndex = 10;
+            this.buttonApiInfo.Text = "?";
+            this.buttonApiInfo.UseVisualStyleBackColor = true;
+            this.buttonApiInfo.Click += new System.EventHandler(this.buttonApiInfo_Click);
+            // 
+            // buttonVanityUrlInfo
+            // 
+            this.buttonVanityUrlInfo.Location = new System.Drawing.Point(621, 5);
+            this.buttonVanityUrlInfo.Name = "buttonVanityUrlInfo";
+            this.buttonVanityUrlInfo.Size = new System.Drawing.Size(25, 25);
+            this.buttonVanityUrlInfo.TabIndex = 11;
+            this.buttonVanityUrlInfo.Text = "?";
+            this.buttonVanityUrlInfo.UseVisualStyleBackColor = true;
+            this.buttonVanityUrlInfo.Click += new System.EventHandler(this.buttonVanityUrlInfo_Click);
+            // 
+            // storeIndivAppsPerm
+            // 
+            this.storeIndivAppsPerm.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.storeIndivAppsPerm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.storeIndivAppsPerm.Location = new System.Drawing.Point(348, 147);
+            this.storeIndivAppsPerm.Name = "storeIndivAppsPerm";
+            this.storeIndivAppsPerm.Size = new System.Drawing.Size(280, 46);
+            this.storeIndivAppsPerm.TabIndex = 1;
+            this.storeIndivAppsPerm.Text = "Store all individual app data";
+            this.storeIndivAppsPerm.UseVisualStyleBackColor = true;
+            this.storeIndivAppsPerm.CheckedChanged += new System.EventHandler(this.storeIndivAppsPerm_CheckedChanged);
+            // 
+            // FormSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (40)))), ((int) (((byte) (56)))));
             this.ClientSize = new System.Drawing.Size(652, 197);
+            this.Controls.Add(this.buttonVanityUrlInfo);
+            this.Controls.Add(this.buttonApiInfo);
             this.Controls.Add(this.buttonSubmitUsername);
             this.Controls.Add(this.checkBoxSaveUsername);
             this.Controls.Add(this.textBoxUsername);
@@ -170,15 +194,17 @@ namespace steam_sharp
             this.Controls.Add(this.storeAppsPerm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
-            this.Name = "SettingsForm";
-            this.Text = "Steam-Sharp: Settings";
+            this.Location = new System.Drawing.Point(19, 19);
+            this.Name = "FormSettingsForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SettingsForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Button buttonApiInfo;
         private System.Windows.Forms.Button buttonSubmitUsername;
         private System.Windows.Forms.Button buttonUpdateApi;
+        private System.Windows.Forms.Button buttonVanityUrlInfo;
         private System.Windows.Forms.CheckBox checkBoxSaveAPI;
         private System.Windows.Forms.CheckBox checkBoxSaveUsername;
         private System.Windows.Forms.Label label1;

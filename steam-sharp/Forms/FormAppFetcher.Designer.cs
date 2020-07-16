@@ -2,7 +2,7 @@
 
 namespace steam_sharp.Forms
 {
-    partial class AppFetcher
+    partial class FormAppFetcher
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@ namespace steam_sharp.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppFetcher));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAppFetcher));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -83,6 +83,7 @@ namespace steam_sharp.Forms
             this.appIdCol.HeaderText = "App ID";
             this.appIdCol.Name = "appIdCol";
             this.appIdCol.ReadOnly = true;
+            this.appIdCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // appNameCol
             // 
@@ -90,6 +91,7 @@ namespace steam_sharp.Forms
             this.appNameCol.HeaderText = "Application Name";
             this.appNameCol.Name = "appNameCol";
             this.appNameCol.ReadOnly = true;
+            this.appNameCol.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // searchInfoLabel1
             // 
@@ -140,7 +142,7 @@ namespace steam_sharp.Forms
             this.labelAppId.Size = new System.Drawing.Size(359, 33);
             this.labelAppId.TabIndex = 9;
             // 
-            // AppFetcher
+            // FormAppFetcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,7 +159,7 @@ namespace steam_sharp.Forms
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
-            this.Name = "AppFetcher";
+            this.Name = "FormAppFetcher";
             this.Text = "Steam-Sharp: App Fetcher";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppFetcher_FormClosing);
             ((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();

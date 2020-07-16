@@ -39,6 +39,7 @@ namespace steam_sharp.Forms
             this.storeButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.labelOwnedGame = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,14 +107,25 @@ namespace steam_sharp.Forms
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(474, 33);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Release date: ";
+            this.label3.Text = "Metacritic";
+            // 
+            // labelOwnedGame
+            // 
+            this.labelOwnedGame.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.labelOwnedGame.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelOwnedGame.Location = new System.Drawing.Point(0, 430);
+            this.labelOwnedGame.Name = "labelOwnedGame";
+            this.labelOwnedGame.Size = new System.Drawing.Size(474, 33);
+            this.labelOwnedGame.TabIndex = 7;
+            this.labelOwnedGame.Text = "You own this game";
             // 
             // FormAppInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (40)))), ((int) (((byte) (56)))));
-            this.ClientSize = new System.Drawing.Size(595, 634);
+            this.ClientSize = new System.Drawing.Size(595, 473);
+            this.Controls.Add(this.labelOwnedGame);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.storeButton);
@@ -124,6 +136,7 @@ namespace steam_sharp.Forms
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
             this.Name = "FormAppInfo";
             this.Text = "Steam-Sharp: ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAppInfo_FormClosing);
             ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
         }
@@ -132,6 +145,7 @@ namespace steam_sharp.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelAppTitle;
+        private System.Windows.Forms.Label labelOwnedGame;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button storeButton;
 

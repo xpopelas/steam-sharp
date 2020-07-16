@@ -19,7 +19,9 @@ namespace steam_sharp
         private SteamWebInterfaceFactory _steamWeb;
         private SteamUser _steamUser;
         private SteamStore _steamStore;
-        private PlayerSummaryModel _playerProfile;
+        private PlayerService _steamPlayerService;
+
+        public ApplicationPlayerDetails PlayerDetails;
         
         public ApplicationSettings Settings;
         private Dictionary<uint, string> _steamApps;
@@ -37,19 +39,67 @@ namespace steam_sharp
             LoadSteamDetailsAsync();
         }
 
+        public async Task<bool> GetUserByIdAsync(ulong steamId, ApplicationPlayerDetails toFill)
+        {
+            if (!IsApiKeySet())
+            {
+                return false;
+            }
+
+            toFill.SteamId = steamId;
+
+            try
+            {
+                var playerSummaryResponse = await _steamUser.GetPlayerSummaryAsync(steamId);
+                toFill.PlayerProfile = playerSummaryResponse.Data;
+
+                // Friend list
+                var friendListResponse = await _steamUser.GetFriendsListAsync(steamId);
+                toFill.Friends = friendListResponse.Data.Select(x => x.SteamId).ToList();
+
+                // Owned games
+                var ownedGamesResponse = await _steamPlayerService.GetOwnedGamesAsync(steamId);
+                toFill.OwnedGames = ownedGamesResponse.Data;
+                return true;
+                
+            }
+            catch (SteamIdNotConstructedException)
+            {
+                return false;
+            }
+        }
+
+        public async Task<string> GetUserNickByIdAsync(ulong steamId)
+        {
+            if (!IsApiKeySet())
+            {
+                return null;
+            }
+
+            try
+            {
+                var playerSummaryResponse = await _steamUser.GetPlayerSummaryAsync(steamId);
+                return playerSummaryResponse.Data.Nickname;
+            }
+            catch (SteamIdNotConstructedException)
+            {
+                return null;
+            }
+        }
+
         public async Task<bool> UpdateUsername(string username)
         {
             if (!IsApiKeySet())
             {
-                ApplicationConstants.ApiNotSetMessage();
+                ApplicationConstants.MessageApiNotSet();
                 return false;
             }
 
             try
             {
-                var tempUser = await _steamUser.ResolveVanityUrlAsync(username);
-                var tempProfileResponse = await _steamUser.GetPlayerSummaryAsync(tempUser.Data);
-                _playerProfile = tempProfileResponse.Data;
+                var vanityResolveResponse = await _steamUser.ResolveVanityUrlAsync(username);
+                PlayerDetails = new ApplicationPlayerDetails();
+                await GetUserByIdAsync(vanityResolveResponse.Data, PlayerDetails);
 
                 return true;
             }
@@ -80,7 +130,10 @@ namespace steam_sharp
 
             _steamWeb = new SteamWebInterfaceFactory(Settings.ApiKey);
             _steamUser = _steamWeb.CreateSteamWebInterface<SteamUser>();
+            _steamPlayerService = _steamWeb.CreateSteamWebInterface<PlayerService>();
             _steamStore = _steamWeb.CreateSteamStoreInterface();
+            
+            PlayerDetails = new ApplicationPlayerDetails();
 
             if (IsUsernameSet())
             {
@@ -145,7 +198,7 @@ namespace steam_sharp
                     .OrderBy(x => x.AppId)
                     .ToDictionary(x => x.AppId, x => x.Name);
 
-                // Update steam apps cached collection
+                // Update steam apps cached collection async
                 _steamApps = tempSteamApps;
                 using (StreamWriter sw = new StreamWriter(ApplicationConstants.AvailableAppsPath))
                 {

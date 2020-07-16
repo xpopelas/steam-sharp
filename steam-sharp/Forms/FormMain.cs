@@ -9,8 +9,8 @@ namespace steam_sharp.Forms
         private ApplicationDataClass _applicationData;
 
         // Forms
-        private AppFetcher _appFetcher;
-        private SettingsForm _settingsForm;
+        private FormAppFetcher _formAppFetcher;
+        private FormSettingsForm _formSettingsForm;
 
         public Form1()
         {
@@ -20,27 +20,26 @@ namespace steam_sharp.Forms
             _applicationData = new ApplicationDataClass();
 
             // Settings
-            _settingsForm = new SettingsForm(_applicationData);
+            _formSettingsForm = new FormSettingsForm(_applicationData);
 
             // AppFetcher
-            _appFetcher = new AppFetcher(_applicationData);
-            _appFetcher.Owner = this;
+            _formAppFetcher = new FormAppFetcher(_applicationData);
         }
 
         private void appFetcherButton_Click(object sender, EventArgs e)
         {
             if (!_applicationData.IsApiKeySet())
             {
-                ApplicationConstants.ApiNotSetMessage();
+                ApplicationConstants.MessageApiNotSet();
                 return;
             }
 
-            _appFetcher.Show();
+            _formAppFetcher.Show();
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            _settingsForm.Show();
+            _formSettingsForm.Show();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -51,9 +50,15 @@ namespace steam_sharp.Forms
             Application.Exit();
         }
 
-        private void friendFinder_Click(object sender, EventArgs e)
+        private void buttonProfile_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException("Not yet implemented");
+            if (!_applicationData.IsUsernameSet())
+            {
+                ApplicationConstants.MessageUsernameNotSet();
+            }
+            
+            var profileView = new FormProfileOverview(_applicationData);
+            profileView.Show();
         }
     }
 }

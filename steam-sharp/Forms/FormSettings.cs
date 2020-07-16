@@ -4,11 +4,11 @@ using steam_sharp.Properties;
 
 namespace steam_sharp
 {
-    public partial class SettingsForm : Form
+    public partial class FormSettingsForm : Form
     {
         private ApplicationDataClass _applicationData;
         
-        public SettingsForm(ApplicationDataClass applicationData)
+        public FormSettingsForm(ApplicationDataClass applicationData)
         {
             _applicationData = applicationData;
             InitializeComponent();
@@ -21,6 +21,11 @@ namespace steam_sharp
             if (_applicationData.IsApiKeySet())
             {
                 labelApi.Text = @"API Key already set";
+            }
+
+            if (_applicationData.IsUsernameSet())
+            {
+                textBoxUsername.Text = _applicationData.Settings.Username;
             }
         }
 
@@ -65,11 +70,22 @@ namespace steam_sharp
         {
             if (!await _applicationData.UpdateUsername(textBoxUsername.Text))
             {
-                ApplicationConstants.AppNotAvailable();
+                ApplicationConstants.MessageAppNotAvailable();
+                return;
             }
             
             _applicationData.Settings.Username = textBoxUsername.Text;
             _applicationData.Settings.UpdateSettingsAsync();
+        }
+
+        private void buttonApiInfo_Click(object sender, EventArgs e)
+        {
+            ApplicationConstants.MessageApiLinkLocation();
+        }
+
+        private void buttonVanityUrlInfo_Click(object sender, EventArgs e)
+        {
+            ApplicationConstants.MessageUsernameIsVanityUrl();
         }
     }
 }
