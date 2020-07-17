@@ -103,12 +103,15 @@ namespace steam_sharp.Forms
             // 
             // buttonRefresh
             // 
+            this.buttonRefresh.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (23)))), ((int) (((byte) (26)))), ((int) (((byte) (33)))));
+            this.buttonRefresh.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.buttonRefresh.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonRefresh.Location = new System.Drawing.Point(5, 137);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(128, 32);
             this.buttonRefresh.TabIndex = 6;
             this.buttonRefresh.Text = "Refresh Data";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // labelGamesOwned
@@ -135,18 +138,22 @@ namespace steam_sharp.Forms
             // 
             // buttonSteamWebProfile
             // 
-            this.buttonSteamWebProfile.Location = new System.Drawing.Point(139, 137);
+            this.buttonSteamWebProfile.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (23)))), ((int) (((byte) (26)))), ((int) (((byte) (33)))));
+            this.buttonSteamWebProfile.Font = new System.Drawing.Font("Montserrat", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
+            this.buttonSteamWebProfile.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonSteamWebProfile.Location = new System.Drawing.Point(226, 137);
             this.buttonSteamWebProfile.Name = "buttonSteamWebProfile";
-            this.buttonSteamWebProfile.Size = new System.Drawing.Size(166, 32);
+            this.buttonSteamWebProfile.Size = new System.Drawing.Size(181, 32);
             this.buttonSteamWebProfile.TabIndex = 9;
             this.buttonSteamWebProfile.Text = "Go To Steam Profile";
-            this.buttonSteamWebProfile.UseVisualStyleBackColor = true;
+            this.buttonSteamWebProfile.UseVisualStyleBackColor = false;
             this.buttonSteamWebProfile.Click += new System.EventHandler(this.buttonSteamWebProfile_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (40)))), ((int) (((byte) (56)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.steamIdFriend, this.friendName});
             this.dataGridView1.Location = new System.Drawing.Point(4, 273);

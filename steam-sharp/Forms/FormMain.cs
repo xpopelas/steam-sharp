@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace steam_sharp.Forms
@@ -55,8 +56,15 @@ namespace steam_sharp.Forms
             if (!_applicationData.IsUsernameSet())
             {
                 ApplicationConstants.MessageUsernameNotSet();
+                return;
             }
-            
+
+            // I'm sorry... I could not fix it in any better way
+            if (!_applicationData.PlayerDetails.EverythingLoaded)
+            {
+                ApplicationConstants.MessageProfileNotYetLoaded();
+                return;
+            }
             var profileView = new FormProfileOverview(_applicationData);
             profileView.Show();
         }

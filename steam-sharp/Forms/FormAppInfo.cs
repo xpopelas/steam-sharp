@@ -68,16 +68,26 @@ namespace steam_sharp.Forms
                 label3.Text += $@"{_appStoreInfo.Metacritic.Score}/100";
             }
 
-            if (_applicationData.PlayerDetails.OwnsGame(_appId))
+            if (_applicationData.IsUsernameSet())
             {
-                labelOwnedGame.Text = @"You already own this game";
-                labelOwnedGame.ForeColor = Color.Green;
+                if (_applicationData.PlayerDetails.OwnsGame(_appId))
+                {
+                    labelOwnedGame.Text = @"You already own this game";
+                    labelOwnedGame.ForeColor = Color.Green;
+                }
+                else
+                {
+                    labelOwnedGame.Text = @"You don't own this game";
+                    labelOwnedGame.ForeColor = Color.DarkRed;
+                }
             }
             else
             {
-                labelOwnedGame.Text = @"You don't own this game";
-                labelOwnedGame.ForeColor = Color.DarkRed;
+                labelOwnedGame.Text = @"You are currently not logged in";
+                labelOwnedGame.ForeColor = Color.Gray;
             }
+
+            
         }
 
         private void storeButton_Click(object sender, EventArgs e)

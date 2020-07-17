@@ -22,8 +22,8 @@ namespace steam_sharp
         private PlayerService _steamPlayerService;
 
         public ApplicationPlayerDetails PlayerDetails;
-        
         public ApplicationSettings Settings;
+        
         private Dictionary<uint, string> _steamApps;
 
         public ApplicationDataClass()
@@ -47,9 +47,11 @@ namespace steam_sharp
             }
 
             toFill.SteamId = steamId;
+            toFill.EverythingLoaded = false;
 
             try
             {
+                // Player profile
                 var playerSummaryResponse = await _steamUser.GetPlayerSummaryAsync(steamId);
                 toFill.PlayerProfile = playerSummaryResponse.Data;
 
@@ -60,6 +62,8 @@ namespace steam_sharp
                 // Owned games
                 var ownedGamesResponse = await _steamPlayerService.GetOwnedGamesAsync(steamId);
                 toFill.OwnedGames = ownedGamesResponse.Data;
+                toFill.EverythingLoaded = true;
+                
                 return true;
                 
             }
@@ -87,7 +91,7 @@ namespace steam_sharp
             }
         }
 
-        public async Task<bool> UpdateUsername(string username)
+        public async Task<bool> UpdateProfile(string username)
         {
             if (!IsApiKeySet())
             {
@@ -137,7 +141,11 @@ namespace steam_sharp
 
             if (IsUsernameSet())
             {
-                await UpdateUsername(Settings.Username);
+                if (!await UpdateProfile(Settings.Username))
+                {
+                    ApplicationConstants.MessageInvalidUsername();
+                    Settings.Username = null;
+                }
             }
             
             FetchApps();

@@ -69,7 +69,7 @@ namespace steam_sharp.Forms
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Location = new System.Drawing.Point(0, 331);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(454, 33);
+            this.label1.Size = new System.Drawing.Size(583, 33);
             this.label1.TabIndex = 3;
             this.label1.Text = "Price";
             // 
@@ -80,7 +80,7 @@ namespace steam_sharp.Forms
             this.storeButton.FlatAppearance.BorderSize = 0;
             this.storeButton.Font = new System.Drawing.Font("Montserrat ExtraBold", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.storeButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.storeButton.Location = new System.Drawing.Point(457, 323);
+            this.storeButton.Location = new System.Drawing.Point(457, 423);
             this.storeButton.Margin = new System.Windows.Forms.Padding(0);
             this.storeButton.Name = "storeButton";
             this.storeButton.Size = new System.Drawing.Size(129, 41);
@@ -95,7 +95,7 @@ namespace steam_sharp.Forms
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(0, 364);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(474, 33);
+            this.label2.Size = new System.Drawing.Size(586, 33);
             this.label2.TabIndex = 5;
             this.label2.Text = "Release date: ";
             // 
@@ -105,7 +105,7 @@ namespace steam_sharp.Forms
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Location = new System.Drawing.Point(0, 397);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(474, 33);
+            this.label3.Size = new System.Drawing.Size(454, 33);
             this.label3.TabIndex = 6;
             this.label3.Text = "Metacritic";
             // 
@@ -115,7 +115,7 @@ namespace steam_sharp.Forms
             this.labelOwnedGame.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.labelOwnedGame.Location = new System.Drawing.Point(0, 430);
             this.labelOwnedGame.Name = "labelOwnedGame";
-            this.labelOwnedGame.Size = new System.Drawing.Size(474, 33);
+            this.labelOwnedGame.Size = new System.Drawing.Size(454, 33);
             this.labelOwnedGame.TabIndex = 7;
             this.labelOwnedGame.Text = "You own this game";
             // 

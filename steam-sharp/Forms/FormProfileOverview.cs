@@ -17,7 +17,7 @@ namespace steam_sharp.Forms
             InitializeComponent();
         }
 
-        public FormProfileOverview(ApplicationDataClass applicationData, ApplicationPlayerDetails currentPlayer)
+        private FormProfileOverview(ApplicationDataClass applicationData, ApplicationPlayerDetails currentPlayer)
         {
             _applicationData = applicationData;
             _currentPlayerProfile = currentPlayer;
@@ -102,7 +102,8 @@ namespace steam_sharp.Forms
             labelRealName.Text = _currentPlayerProfile.PlayerProfile.RealName;
             labelSteamID.Text = $@"Steam ID: {_currentPlayerProfile.PlayerProfile.SteamId}";
             labelGamesOwned.Text = $@"Total of {_currentPlayerProfile.OwnedGames.GameCount} games owned";
-            labelFriendsCount.Text = $@"You have {_currentPlayerProfile.Friends.Count} friend";
+            labelFriendsCount.Text = _currentPlayerProfile.SteamId == _applicationData.PlayerDetails.SteamId ? @"You have " : @"This person has ";
+            labelFriendsCount.Text += $@"{_currentPlayerProfile.Friends.Count} friend";
             if (_currentPlayerProfile.Friends.Count != 1)
             {
                 labelFriendsCount.Text += @"s";
@@ -139,7 +140,12 @@ namespace steam_sharp.Forms
         {
             ulong friendsId = _currentPlayerProfile.Friends[dataGridView1.CurrentCell.RowIndex];
             ApplicationPlayerDetails friendDetails = new ApplicationPlayerDetails();
-            await _applicationData.GetUserByIdAsync(friendsId, friendDetails);
+
+            if (!await _applicationData.GetUserByIdAsync(friendsId, friendDetails))
+            {
+                ApplicationConstants.MessageUserNotFound();
+                return;
+            }
             
             var friendsProfile = new FormProfileOverview(_applicationData, friendDetails);
             friendsProfile.Show();

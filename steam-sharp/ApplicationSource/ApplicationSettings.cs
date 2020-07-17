@@ -20,8 +20,7 @@ namespace steam_sharp
         public ApplicationSettings(ApplicationSettings other)
         {
             SaveLoadApps = other.SaveLoadApps;
-            SaveIndividualApps = other.SaveIndividualApps;
-            SaveAPIKey = other.SaveIndividualApps;
+            SaveAPIKey = other.SaveAPIKey;
             SaveUsername = other.SaveUsername;
             Username = other.Username;
             ApiKey = other.ApiKey;
@@ -30,7 +29,6 @@ namespace steam_sharp
         public void DefaultSettings()
         {
             SaveLoadApps = true;
-            SaveIndividualApps = true;
             SaveAPIKey = true;
             SaveUsername = true;
             Username = null;

@@ -53,7 +53,7 @@
       this.settingsButton.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (23)))), ((int) (((byte) (26)))), ((int) (((byte) (33)))));
       this.settingsButton.Font = new System.Drawing.Font("Montserrat", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
       this.settingsButton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-      this.settingsButton.Location = new System.Drawing.Point(15, 237);
+      this.settingsButton.Location = new System.Drawing.Point(18, 164);
       this.settingsButton.Name = "settingsButton";
       this.settingsButton.Size = new System.Drawing.Size(297, 61);
       this.settingsButton.TabIndex = 1;
@@ -80,7 +80,7 @@
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (27)))), ((int) (((byte) (40)))), ((int) (((byte) (56)))));
-      this.ClientSize = new System.Drawing.Size(330, 307);
+      this.ClientSize = new System.Drawing.Size(330, 232);
       this.Controls.Add(this.buttonProfile);
       this.Controls.Add(this.settingsButton);
       this.Controls.Add(this.appFetcherButton);

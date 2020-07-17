@@ -7,7 +7,6 @@ namespace steam_sharp
     {
         public static string SettingsPath => @"data/settings.json";
         public static string AvailableAppsPath => @"data/steam_apps.json";
-        public static string UserDetailsPathPrefix => @"data/users/";
         public static string SteamStoreAppPrefix => @"https://store.steampowered.com/app/";
 
         public static Color ColorButtonBackground = Color.FromArgb(23, 26, 33);
@@ -61,6 +60,15 @@ namespace steam_sharp
             }
         }
 
+        public static void MessageInvalidUsername()
+        {
+            MessageBox.Show(@"Provided username in the settings could not be fetched, please " +
+                    @"check your username in settings.",
+                @"Invalid username",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+        }
+
         public static void MessageUsernameIsVanityUrl()
         {
             MessageBox.Show(@"As fetching profile by username is not currently supported, please fill out " +
@@ -69,6 +77,23 @@ namespace steam_sharp
                 @"Vanity URL is not username",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
+        }
+
+        public static void MessageProfileNotYetLoaded()
+        {
+            MessageBox.Show(@"Your profile was not yet loaded, please wait and try again later",
+                @"Profile not yet loaded",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Asterisk);
+        }
+        
+        public static void MessageUserNotFound()
+        {
+            MessageBox.Show(@"The current user could not be loaded. The user is either private, or some internal " +
+                            @"error occured.",
+                @"User not found",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
         }
         
     }

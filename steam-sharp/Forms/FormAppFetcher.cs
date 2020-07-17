@@ -118,8 +118,12 @@ namespace steam_sharp.Forms
                 {
                     _formAppInfos.Add(_selectedAppId, new FormAppInfo(_applicationData, _selectedAppId));
                 }
-                // Create new form
             }
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            button2_Click(sender, e);
         }
     }
 }

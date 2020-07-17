@@ -10,6 +10,7 @@ namespace steam_sharp
         public PlayerSummaryModel PlayerProfile;
         public List<ulong> Friends;
         public OwnedGamesResultModel OwnedGames;
+        public bool EverythingLoaded;
     
         public bool OwnsGame(uint appId)
         {

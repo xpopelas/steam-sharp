@@ -43,16 +43,15 @@ namespace steam_sharp
             this.buttonSubmitUsername = new System.Windows.Forms.Button();
             this.buttonApiInfo = new System.Windows.Forms.Button();
             this.buttonVanityUrlInfo = new System.Windows.Forms.Button();
-            this.storeIndivAppsPerm = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // storeAppsPerm
             // 
             this.storeAppsPerm.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
             this.storeAppsPerm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.storeAppsPerm.Location = new System.Drawing.Point(24, 147);
+            this.storeAppsPerm.Location = new System.Drawing.Point(174, 139);
             this.storeAppsPerm.Name = "storeAppsPerm";
-            this.storeAppsPerm.Size = new System.Drawing.Size(280, 46);
+            this.storeAppsPerm.Size = new System.Drawing.Size(345, 46);
             this.storeAppsPerm.TabIndex = 0;
             this.storeAppsPerm.Text = "Use local storage for apps";
             this.storeAppsPerm.UseVisualStyleBackColor = true;
@@ -162,18 +161,6 @@ namespace steam_sharp
             this.buttonVanityUrlInfo.UseVisualStyleBackColor = true;
             this.buttonVanityUrlInfo.Click += new System.EventHandler(this.buttonVanityUrlInfo_Click);
             // 
-            // storeIndivAppsPerm
-            // 
-            this.storeIndivAppsPerm.Font = new System.Drawing.Font("Montserrat", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (238)));
-            this.storeIndivAppsPerm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.storeIndivAppsPerm.Location = new System.Drawing.Point(348, 147);
-            this.storeIndivAppsPerm.Name = "storeIndivAppsPerm";
-            this.storeIndivAppsPerm.Size = new System.Drawing.Size(280, 46);
-            this.storeIndivAppsPerm.TabIndex = 1;
-            this.storeIndivAppsPerm.Text = "Store all individual app data";
-            this.storeIndivAppsPerm.UseVisualStyleBackColor = true;
-            this.storeIndivAppsPerm.CheckedChanged += new System.EventHandler(this.storeIndivAppsPerm_CheckedChanged);
-            // 
             // FormSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -190,7 +177,6 @@ namespace steam_sharp
             this.Controls.Add(this.buttonUpdateApi);
             this.Controls.Add(this.labelApi);
             this.Controls.Add(this.textBoxApi);
-            this.Controls.Add(this.storeIndivAppsPerm);
             this.Controls.Add(this.storeAppsPerm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon) (resources.GetObject("$this.Icon")));
@@ -210,7 +196,6 @@ namespace steam_sharp
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelApi;
         private System.Windows.Forms.CheckBox storeAppsPerm;
-        private System.Windows.Forms.CheckBox storeIndivAppsPerm;
         private System.Windows.Forms.TextBox textBoxApi;
         private System.Windows.Forms.TextBox textBoxUsername;
 

@@ -14,7 +14,6 @@ namespace steam_sharp
             InitializeComponent();
 
             storeAppsPerm.Checked = _applicationData.Settings.SaveLoadApps;
-            storeIndivAppsPerm.Checked = _applicationData.Settings.SaveIndividualApps;
             checkBoxSaveAPI.Checked = _applicationData.Settings.SaveAPIKey;
             checkBoxSaveUsername.Checked = _applicationData.Settings.SaveUsername;
             
@@ -32,12 +31,6 @@ namespace steam_sharp
         private void storeAppsPerm_CheckedChanged(object sender, EventArgs e)
         {
             _applicationData.Settings.SaveLoadApps = storeAppsPerm.Checked;
-            _applicationData.Settings.UpdateSettingsAsync();
-        }
-
-        private void storeIndivAppsPerm_CheckedChanged(object sender, EventArgs e)
-        {
-            _applicationData.Settings.SaveIndividualApps = storeIndivAppsPerm.Checked;
             _applicationData.Settings.UpdateSettingsAsync();
         }
 
@@ -68,7 +61,7 @@ namespace steam_sharp
 
         private async void buttonSubmitUsername_Click(object sender, EventArgs e)
         {
-            if (!await _applicationData.UpdateUsername(textBoxUsername.Text))
+            if (!await _applicationData.UpdateProfile(textBoxUsername.Text))
             {
                 ApplicationConstants.MessageAppNotAvailable();
                 return;
